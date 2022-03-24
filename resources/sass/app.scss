@@ -1,0 +1,57 @@
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Nunito&display=swap');
+
+// $navBar: #1E2632;
+// $background: #f7f8f9;
+// $text: #3A3C42;
+$primary: #603601;
+
+body{
+    font-family: 'Nunito', sans-serif;
+}
+
+.text-secondary {
+    color: #BDB9B9;
+}
+
+.primary-btn {
+    background-color: $primary;
+    outline: none;
+    border-radius: 5px;
+    border: none; 
+}
+
+.primary-btn:hover {
+    background-color: #794301;
+}
+
+.btn-transparent {
+  background-color: #fff;
+}
+
+.btn-transparent:hover {
+  background-color: #cecccc;
+}
+
+/* .image{
+    width: 50px;
+    height: 50px;
+} */
+
+.bg-brown {
+  background-color: #603601;
+  color: white;
+}
+.bg-brown:hover {
+  background-color: #906125;
+  color: white;
+}
+
+.bg-nav{
+  background-color: #1C0A00;
+  color: white;
+}
+
+.task-card:hover {
+  background-color: #eeebeb;
+}
