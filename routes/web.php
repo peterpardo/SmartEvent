@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WorkspaceController;
 use Illuminate\Support\Facades\Route;
@@ -28,7 +29,6 @@ Route::middleware(['auth'])->group(function() {
 
     // User Routes
     Route::get('/account/{id}', [UserController::class, 'viewAccount']);
-    Route::get('/events', [WorkspaceController::class, 'viewEvents']);
     Route::post('/create-workspace', [WorkspaceController::class, 'createWorkspace']);
     Route::get('/your-workspace/{id}', [WorkspaceController::class, 'openWorkspace'])->name('workspace');
     Route::post('/edit-workspace/{id}', [WorkspaceController::class, 'editWorkspace']);
@@ -41,4 +41,8 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/delete-task/{id}', [WorkspaceController::class, 'deleteTask']);
     Route::post('/create-post/{id}', [WorkspaceController::class, 'createPost']);
     Route::post('/move-task/{id}', [WorkspaceController::class, 'moveTask']);
+    Route::get('/events', [EventController::class, 'viewEvents']);
+    Route::post('/add-event', [EventController::class, 'addEvent']);
+    Route::post('/edit-event/{id}', [EventController::class, 'editEvent']);
+    Route::post('/delete-event/{id}', [EventController::class, 'deleteEvent']);
 });

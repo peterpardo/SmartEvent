@@ -5,6 +5,8 @@
     <form method="POST" action="/view-user/{{ $user->id }}" class="m-3 d-flex justify-content-center">
         @csrf
         <div class="p-5 min-w-100 row border border-secondary rounded" style="width:500px">
+
+            {{-- Success Laert --}}
             @if(session('success'))
             <div class="alert alert-success d-flex align-items-center alert-dismissible show" role="alert">
                 <svg xmlns="http://www.w3.org/2000/svg" style="width:2rem;" class="me-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -16,8 +18,16 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             @endif
+
             <h1 class="fw-bold text-center">View User</h1>
             <p class="text-muted text-center">User Details</p>
+            
+            {{-- User Reports --}}
+            @if($user->hasRole('user'))
+                <p class="text-muted text-center"><span class="fw-bold text-black">Workspaces:</span> {{ $user->workspaces()->count() }}</p>
+                <p class="text-muted text-center"><span class="fw-bold text-black">Events:</span> {{ $user->events()->count() }}</p>
+            @endif
+
             <div class="mb-3">
                 <label for="fname" class="fw-bold">First Name</label>
                 <input name="fname" class="form-control @error('fname') is-invalid @enderror" type="text" value="{{ $user->fname }}"/>

@@ -4,12 +4,17 @@
 {{-- ADMIN HOMEPAGE --}}
 @role('admin')
 <div x-data="{ open: false }" class="container">
-  <div class="mt-4 d-flex flex-row align-items-center">
-    <h2 class="fw-bold mx-2">Your Users</h2>
-    <a href="/add-user"
-      class="btn-transparent d-inline-block text-decoration-none text-center align-middle px-2 py-2 border rounded text-black">
-      + Add User
-    </a>
+  <div class="mt-4 d-flex flex-row align-items-center justify-content-between">
+    <div class="d-flex flex-row align-items-center">
+      <h2 class="fw-bold mx-2">Your Users</h2>
+      <a href="/add-user"
+        class="btn-transparent d-inline-block text-decoration-none text-center align-middle px-2 py-2 border rounded text-black">
+        + Add User
+      </a>
+    </div>    
+    <div class="d-flex align-items-center border p-3 rounded">
+      No. of Users: &nbsp; <span class="fw-bold">{{ App\Models\User::role('user')->count() }}</span>
+    </div>
   </div>
   <div class="mt-3 w-25">
     <input type="text" class="form-control" placeholder="Search User" />
@@ -73,12 +78,6 @@
                   </a>
                 </li>
                 @endif
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Separated link</a>
-                </li>
               </ul>
             </td>
           </tr>

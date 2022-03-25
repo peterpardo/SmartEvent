@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -120,8 +121,8 @@ class UserController extends Controller
             ])->validate();
         }
 
-        $user->fname = $request->input('fname');
-        $user->lname = $request->input('lname');
+        $user->fname = Str::title($request->input('fname'));
+        $user->lname = Str::title($request->input('lname'));
         $user->email = $request->input('email');
         $user->save();
         

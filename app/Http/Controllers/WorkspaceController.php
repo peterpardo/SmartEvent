@@ -23,10 +23,6 @@ class WorkspaceController extends Controller
         return back()->with('success', 'Workspace successfully created.');
     }
 
-    public function viewEvents() {
-        return view('users.view-events');
-    }
-
     public function openWorkspace($id) {
         $workspace = Workspace::find($id);
 

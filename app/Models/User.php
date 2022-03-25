@@ -51,4 +51,8 @@ class User extends Authenticatable
     public function posts() {
         return $this->hasMany(Post::class, 'user_id', 'id');
     }
+
+    public function events() {
+        return $this->hasMany(Event::class, 'user_id', 'id');
+    }
 }
