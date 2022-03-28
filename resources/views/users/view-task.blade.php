@@ -77,6 +77,9 @@
         <textarea class="form-control" placeholder="Leave a comment here" id="comment" name="comment"></textarea>
         <label class="text-muted" for="floatingTextarea">Write a comment</label>
         <span class="invalid-feedback" role="alert"></span>
+        <div class="mb-3">
+          <input class="form-control" type="file" id="formFile">
+        </div>
       </div>
       <button type="submit" class="btn btn-success mt-2">Post comment</button>
     </form>
